@@ -1,0 +1,77 @@
+.login-background{
+    background-image: url('/assets/imgs/novaAcamp.jpg') ;
+    height: 100%;
+}
+
+
+
+.card-login.mat-card {
+    opacity: 0.9;
+    height: 75%;
+    width: 90%;
+    margin-left: 8%;
+    margin-top: 30%;
+    border-radius: 20px;
+}
+
+button.mat-raised-button.mat-primary {
+    margin-left: 60%;
+}
+
+button.mat-stroked-button.mat-primary {
+    margin-left: -75%;
+    border-color:#7044ff;
+}
+.login--choice-two {
+    margin-top: -36px;
+    margin-left: 70px;
+    opacity: 0.8;
+}
+
+
+// Esqueceu a senha
+
+
+
+.esqueceu-senha {
+    height: 330px;
+    width: 370px;
+}
+
+.card-esqueceu.mat-card {
+    opacity: 0.9;
+    height: 75%;
+    width: 75%;
+    margin-left: 15%;
+    margin-top: 23%;
+    border-radius: 20px;
+}
+
+.esqueceu-choice-two {
+    margin-right: 60%;
+    opacity: 0.8;
+}
+
+
+.example-button-row.email {
+    margin-right: 20px;
+}
+
+.esqueceu-choice-one {
+    margin-left: 65%;
+    margin-top: -21%;
+}
+
+button.email.mat-raised-button.mat-primary[_ngcontent-twv-c0] {
+    margin-top: 10px;
+    margin-left: 0px;
+    /* width: 150px; */
+    opacity: 4 !important;
+    /* height: 41px; */
+    color: white;
+}
+
+button.email.mat-raised-button.mat-primary {
+    /* margin-right: 6px; */
+    margin-left: 2px;
+}

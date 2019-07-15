@@ -1,0 +1,110 @@
+
+<ion-content  >
+  
+  <div  class="login-background" >
+
+    <ion-slides pager="true" >
+      <ion-slide>
+        <div class="login">
+          
+          <mat-card class="card-login">
+            
+            <mat-card-header>
+              <mat-card-title class="login-tittle">
+
+                  <div class="login-choice" >
+                
+                    <div class="login-choice-one" >
+                        <button mat-stroked-button color="primary">Login</button>
+                    </div>
+                    <div class="login--choice-two" >
+                        <button mat-button color="primary" (click)="escolherEsquecer()">Esqueci minha senha</button>
+                    </div>
+
+                  </div>
+              </mat-card-title>  
+
+            </mat-card-header>
+            
+            <mat-card-content>
+                <!-- <mat-form-field> -->
+                    <!-- <input matInput  placeholder="Entre com o seu login" formControlName="email" > -->
+                    <!-- <input matInput placeholder="Entre com o seu login" [formControl]="email" required> -->
+                    <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+
+                <!-- </mat-form-field> -->
+                <ion-item>
+                    <ion-input  placeholder="Entre com o seu login" [(ngModel)]=email></ion-input>
+                  </ion-item>
+                  <!-- <mat-form-field>
+                      <input matInput  type="password"  placeholder="Entre com a sua senha" formControlName="password">
+                     <input matInput placeholder="Entre com o seu login" [formControl]="email" required> -->
+                      <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+
+                  <!-- </mat-form-field>  
+                  -->
+                  <ion-item>
+                      <ion-input type="password"  placeholder="Entre com a sua senha" [(ngModel)]=password></ion-input>
+                    </ion-item>
+            </mat-card-content>
+            
+            <div class="example-button-row" >
+              <button mat-raised-button color="primary" [disabled]="!habilitadoLogar" (click)="fazerLogin()">Logar</button>
+            </div>
+            
+          </mat-card>
+
+        </div>
+      </ion-slide>
+
+      <ion-slide>
+        <div class="esqueceu-senha">
+          
+            <mat-card class="card-esqueceu">
+            
+                <mat-card-header>
+                  <mat-card-title class="esqueceu-tittle">
+    
+                      <div class="esqueceu-choice" >
+                    
+                        <div class="esqueceu-choice-two" >
+                            <button mat-button color="primary" (click)="escolherLogin()" >Login</button>
+                        </div>
+                        <div class="esqueceu-choice-one" >
+                            <button mat-stroked-button color="primary" >Esqueci minha senha</button>
+                        </div>
+    
+                      </div>
+                  </mat-card-title>  
+    
+                </mat-card-header>
+                
+                <mat-card-content>
+                    <!-- <mat-form-field>
+                        <input matInput placeholder="Entre com o seu e-mail" formControlName="emailRecuperar" > -->
+                        <!-- <input matInput placeholder="Entre com o seu login" [formControl]="email" required> -->
+                        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+                      <!-- </mat-form-field> -->
+                     
+                      <ion-item>
+                          <!-- <ion-label>Entre com o seu e-mail</ion-label> -->
+                          <ion-input placeholder="Entre com o seu e-mail" [(ngModel)]=emailRecuperar></ion-input>
+                        </ion-item>
+
+                </mat-card-content>
+                
+                <div class="example-button-row " >
+                  <button mat-raised-button class="email" color="primary" [disabled]="!habilitadoRecuperar" (click)="recuperarSenha()">Enviar e-mail</button>
+                </div>
+                
+              </mat-card>
+
+
+        </div>
+      </ion-slide>
+     
+    </ion-slides>
+
+  </div>
+
+</ion-content>

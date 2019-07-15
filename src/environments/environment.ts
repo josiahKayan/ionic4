@@ -3,7 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: "AIzaSyDQjgcTGjzrVguWOmwJeY0KTi8UWDqdx2E",
+    authDomain: "novaacamp-94261.firebaseapp.com",
+    databaseURL: "https://novaacamp-94261.firebaseio.com",
+    projectId: "novaacamp-94261",
+    storageBucket: "",
+    messagingSenderId: "799416835751",
+    appId: "1:799416835751:web:e020b1132b5897b6"
+  }
 };
 
 /*
