@@ -16,7 +16,7 @@ import { MatInputModule } from '@angular/material';
 
 import {AngularFireModule} from '@angular/fire';
 import {environment} from 'src/environments/environment';
-import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 
 @NgModule({
@@ -30,12 +30,11 @@ import { AngularFireAuth } from '@angular/fire/auth';
     ReactiveFormsModule, 
     AppRoutingModule,
     FormsModule,
-    AngularFireAuth,
+    AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase),
     BrowserAnimationsModule],
   providers: [
     StatusBar,
-    AngularFireAuth,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
 

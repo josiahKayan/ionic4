@@ -19,9 +19,8 @@ export class LoginPage implements OnInit {
   private habilitadoLogar: boolean = true;
   private habilitadoRecuperar: boolean = true;
   public loading : any;
-
-
-  constructor( private toast: ToastController, private load: LoadingController, private authService : AuthService) { }
+  
+  constructor( private toastController: ToastController, private loading: LoadingController, private authService : AuthService) { }
 
   ngOnInit() {
   }
@@ -41,27 +40,26 @@ export class LoginPage implements OnInit {
   }
 
   fazerLogin(){
-
     var email = this.email;
     var password = this.password;
-
-    alert('Fazendo requisição');
-
-    alert('Logando :'+ email + ' com senha '+password);
-
     this.habilitadoLogar = false;
-
-    this.register();
-    // this.logar();
-
+    // this.register();
+    this.logar();
   }
 
   async presentLoading() {
     const loading = await this.loading.create({
-      message: 'Por favor, aguarde ...'});
+      message: 'Por favor, aguarde ...'
+    });
     return loading.present();
+  }
 
-   
+  async presentToast(message:string) {
+    const toast = await this.toastController.create({
+      message,
+      duration: 2000
+    });
+    toast.present();
   }
 
   async register(){
@@ -71,7 +69,8 @@ export class LoginPage implements OnInit {
       await this.authService.register(this.email, this.password);
     }
     catch(err){
-      console.log(err);
+      await this.presentToast(err.message);
+      this.habilitadoLogar = true;
     }
     finally{
       this.loading.dismiss();
@@ -86,7 +85,8 @@ export class LoginPage implements OnInit {
       await this.authService.login(this.email, this.password);
     }
     catch(err){
-      console.log(err);
+      await this.presentToast(err.message);
+      this.habilitadoLogar = true;
     }
     finally{
       this.loading.dismiss();
