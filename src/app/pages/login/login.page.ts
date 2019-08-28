@@ -1,7 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {IonSlides, ToastController, LoadingController} from '@ionic/angular';
-import { FormGroup, FormControl } from '@angular/forms';
-import { MatInputModule } from '@angular/material';
 import { AuthService } from '../../services/auth.service';
 import { User } from '../../interfaces/user';
 
@@ -19,9 +17,9 @@ export class LoginPage implements OnInit {
   private password : string;
   private habilitadoLogar: boolean = true;
   private habilitadoRecuperar: boolean = true;
-  user: User;
+  public user: User = {};
   
-  constructor( private toastController: ToastController, private loading: LoadingController, private authService : AuthService, user : User) { }
+  constructor( private toastController: ToastController, private loading: LoadingController, private authService : AuthService) { }
 
   ngOnInit() {
   }
@@ -44,8 +42,12 @@ export class LoginPage implements OnInit {
     var email = this.email;
     var password = this.password;
     this.habilitadoLogar = false;
+
+    this.user.email = email;
+    this.user.password = password;
+
     // this.register();
-    this.logar();
+    this.logar(this.user);
   }
 
   async presentLoading() {
@@ -68,7 +70,8 @@ export class LoginPage implements OnInit {
 
     try{
 
-      this.user.name = this.email;
+      this.user.email = this.email;
+      
       this.user.password = this.password;
 
       await this.authService.register(this.user);
@@ -83,15 +86,12 @@ export class LoginPage implements OnInit {
 
   }
 
-  async logar(){
+  async logar(user : User){
     await this.presentLoading();
 
     try{
 
-      this.user.name = this.email;
-      this.user.password = this.password;
-
-      await this.authService.login(this.user);
+      await this.authService.login(user);
     }
     catch(err){
       await this.presentToast(err.message);

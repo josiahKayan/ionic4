@@ -17,6 +17,10 @@ import { MatInputModule } from '@angular/material';
 import {AngularFireModule} from '@angular/fire';
 import {environment} from 'src/environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+
+
+
 
 
 @NgModule({
@@ -31,6 +35,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
     AppRoutingModule,
     FormsModule,
     AngularFireAuthModule,
+    AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.firebase),
     BrowserAnimationsModule],
   providers: [

@@ -15,14 +15,14 @@ export class AuthService {
     // return this.auth.createUserWithEmailAndPassword(login, password);
 
     
-    this.afa.auth.createUserWithEmailAndPassword(user.name, user.password);
+    this.afa.auth.createUserWithEmailAndPassword(user.email, user.password);
 
   }
 
   login( user: User ){
     // return this.auth.createUserWithEmailAndPassword(login, password);
 
-    return this.afa.auth.signInWithEmailAndPassword(user.name, user.password);
+    return this.afa.auth.signInWithEmailAndPassword(user.email, user.password);
 
   }
 

@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Acampamentos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid class="backgrnd">
+
+    <!-- <ion-slides pager="true"> -->
+    <ion-slides >
+
+
+      <ion-slide>
+        <ion-row> 
+          
+            <ion-col> 
+              
+                <ion-card *ngFor="let acamp of acampamentos" >
+
+                  <!-- <div class="acampamento-background">
+
+                  </div> -->
+
+                    <ion-card-header>
+                      <ion-card-title>Acampamento - {{acamp.nome}}</ion-card-title>
+                      <ion-card-subtitle>Data: {{acamp.dataAcampamento}}</ion-card-subtitle>
+                    </ion-card-header>
+                  
+                    <ion-card-content>
+                      <div class="box-card">
+                        <ion-button [routerLink]="['/inscricao', acamp.id,'add']" color="success">Nova Inscrição</ion-button>
+                        <ion-button [routerLink]="['/inscricao',acamp.id,'list']" color="warning">Inscrições</ion-button>
+                      </div>
+                    </ion-card-content>
+                    <ion-card-title>
+                      <div class="vagas-card">
+                        <span>
+                          Vagas : {{0}} /{{acamp.vagas}}
+                          <!-- Vagas : {{acamp.vagasPreenchidas}} /{{acamp.vagas}} -->
+                        </span>
+                      </div>
+                      </ion-card-title>
+
+                </ion-card>
+                  
+            </ion-col> 
+
+           
+
+        </ion-row> 
+
+      </ion-slide>
+
+     
+
+    </ion-slides>
+  </ion-grid>
+
+    <!-- fab placed to the bottom start -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button>
+        <ion-icon name="add" [routerLink]="['/acampamento-detalhes']"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  
+
+</ion-content>

@@ -1,0 +1,86 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+  
+      <ion-title>Nova Inscrição</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content content="ion-padding">
+  
+      
+    <ion-list *ngIf="isList">
+       
+        <ion-card *ngFor="let insc of inscricoes" >
+
+            <!-- <div class="acampamento-background">
+
+            </div> -->
+
+              <ion-card-header>
+                <ion-card-title>Nome: {{insc.nome}}</ion-card-title>
+                <ion-card-subtitle>Telefone: {{insc.telefone}}</ion-card-subtitle>
+              </ion-card-header>
+            
+              <ion-card-content>
+                <div class="box-card">
+                  <!-- <ion-button [routerLink]="['/inscricao', acamp.id,'add']" color="success">Nova Inscrição</ion-button>
+                  <ion-button [routerLink]="['/inscricao',acamp.id,'list']" color="warning">Inscrições</ion-button> -->
+                </div>
+              </ion-card-content>
+              <ion-card-title>
+                <div class="vagas-card">
+                  <span>
+                    Líder : {{insc.liderGA}}
+                    <!-- Vagas : {{acamp.vagasPreenchidas}} /{{acamp.vagas}} -->
+                  </span>
+                </div>
+                </ion-card-title>
+
+          </ion-card>
+  
+    </ion-list>
+
+    <ion-list *ngIf="!isList">
+        <ion-item>
+          <ion-input type="text" [(ngModel)]="insc.nome" placeholder="Nome"  ></ion-input>
+        </ion-item>
+  
+        <ion-item>
+          <ion-input type="date" [(ngModel)]="insc.telefone" placeholder="Telefone"  ></ion-input>
+        </ion-item>
+  
+        <ion-item>
+          <ion-input type="text" [(ngModel)]="insc.liderGA" placeholder="Líder de GA"  ></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>ônibus</ion-label>
+          <ion-checkbox [(ngModel)]="insc.onibus"></ion-checkbox>
+
+          </ion-item>
+    
+          
+          <ion-item>
+            <ion-input type="text" [(ngModel)]="insc.formaPagamento" placeholder="forma de Pagamento"  ></ion-input>
+          </ion-item>
+    
+          <ion-item>
+            <ion-input type="number" [(ngModel)]="insc.quantidadePaga" placeholder="Quantidade Paga"  ></ion-input>
+          </ion-item>
+
+     
+    </ion-list>
+
+  </ion-content>
+  
+  <ion-footer>
+    <ion-toolbar>
+      <ion-button *ngIf="!isList" expand="block" (click)="salvarInscricao()">
+        Salvar
+      </ion-button>
+    </ion-toolbar>
+  </ion-footer>
+  
